@@ -216,6 +216,6 @@ app.get('/api/household/:member', (request, response) => {
         response.json(household[member])
     }
 })
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running on ${PORT}`)
 })
