@@ -7,7 +7,7 @@ app.use(cors())
 
 let household = [
 {
-        'id': 1,
+        'id': 0,
         'name': 'Mom', 
         'fullName' : 'Katrina Dierking', 
         'birthday' : '09/22/1973', 
@@ -68,7 +68,7 @@ let household = [
     }, 
 
     {
-        'id': 2,
+        'id': 1,
         'name': 'Colby', 
         'fullName' : 'Colby Wampler', 
         'birthday' : '05/20/1999', 
@@ -109,7 +109,7 @@ let household = [
     }, 
 
     {
-        'id': 3,
+        'id': 2,
         'name': 'Channing', 
         'fullName' : 'Channing Dierking', 
         'birthday' : '05/28/2012', 
@@ -150,7 +150,7 @@ let household = [
     }, 
 
     {
-        'id': 4,
+        'id': 3,
         'name': 'Dylan', 
         'fullName' : 'Dylan Wampler', 
         'birthday' : '11/25/2019', 
@@ -209,11 +209,11 @@ app.get('/api/household', (request, response) => {
     }
 })
 
-app.get('/api/household/:member', (request, response) => {
-    const member = request.params.member.toLocaleLowerCase()
-    console.log(member)
-    if(household[member]) {
-        response.json(household[member])
+app.get('/api/household/:id', (request, response) => {
+    const id = request.params.id.toLocaleLowerCase()
+    console.log(id)
+    if(household[id]) {
+        response.json(household[id])
     }
 })
 app.listen(process.env.PORT || PORT, () => {
