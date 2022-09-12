@@ -216,6 +216,19 @@ app.get('/api/household/:id', (request, response) => {
         response.json(household[id])
     }
 })
+
+app.post('/addMember', (request, response) => {
+    console.log(request)
+    db.collection('members').insertOne({name: request.body.name})
+    .then(result => {
+        console.log('Member added')
+        response.redirect('/')
+    })
+    .catch(err => console.error(err))
+})
+
+app.delete('/deleteMember')
+
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running on ${PORT}`)
 })
